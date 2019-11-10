@@ -2,6 +2,7 @@ package com.aryan.android.oyo;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.annotation.NonNull;
@@ -19,6 +20,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +49,23 @@ public class YouFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_you, container, false);
+        TextView fq1=(TextView) view.findViewById(R.id.faq);
+        fq1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),faq_page.class);
+                startActivity(intent);
+            }
+        });
+        TextView ph1=(TextView) view.findViewById(R.id.call);
+        ph1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1=new Intent(Intent.ACTION_DIAL);
+                intent1.setData(Uri.parse("tel:01294044191"));
+                startActivity(intent1);
+            }
+        });
         TextView btn=(TextView) view.findViewById(R.id.chat);
         btn.setOnClickListener(new View.OnClickListener() {
 

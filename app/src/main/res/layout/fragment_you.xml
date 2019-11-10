@@ -121,13 +121,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="?attr/actionBarSize"
                     android:text="Need Help?"
-                    android:padding="20sp"
+                    android:padding="18sp"
                     android:textSize="15sp"
                     android:textColor="#000"
                     android:textStyle="bold"
                     android:layout_gravity="center_vertical"/>
 
                 <TextView
+                    android:id="@+id/faq"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:text="FAQ"
@@ -167,6 +168,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:text="Call Us"
+                    android:id="@+id/call"
                     android:textSize="15sp"
                     android:padding="20sp"
                     android:textColor="#000"

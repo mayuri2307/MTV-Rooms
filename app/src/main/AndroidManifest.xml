@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.aryan.android.oyo">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
@@ -13,8 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
+        <activity android:name=".faq_page"></activity>
         <activity
-            android:name="com.aryan.android.oyo.MainActivity"
+            android:name=".MainActivity"
             android:theme="@style/noAnimTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,40 +26,41 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.aryan.android.oyo.FirstRunOneActivity"
+            android:name=".FirstRunOneActivity"
             android:screenOrientation="portrait"
             android:theme="@style/FirstRumTheme" />
         <activity
-            android:name="com.aryan.android.oyo.FirstRunSecondActivity"
+            android:name=".FirstRunSecondActivity"
             android:label=" "
-            android:parentActivityName="com.aryan.android.oyo.FirstRunOneActivity"
+            android:parentActivityName=".FirstRunOneActivity"
             android:screenOrientation="portrait"
             android:theme="@style/FirstRumTheme" />
         <activity
-            android:name="com.aryan.android.oyo.FirstRunThirdActivity"
+            android:name=".FirstRunThirdActivity"
             android:label=" "
-            android:parentActivityName="com.aryan.android.oyo.FirstRunSecondActivity"
+            android:parentActivityName=".FirstRunSecondActivity"
             android:screenOrientation="portrait"
             android:theme="@style/FirstRumTheme"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.aryan.android.oyo.FirstActivity"
+            android:name=".FirstActivity"
             android:theme="@style/FirstRumTheme" />
         <activity
-            android:name="com.aryan.android.oyo.SearchActivity1"
+            android:name=".SearchActivity1"
             android:theme="@style/FirstRumTheme" />
         <activity
-            android:name="com.aryan.android.oyo.SetDatesActivity"
+            android:name=".SetDatesActivity"
             android:theme="@style/FirstRumTheme" />
         <activity
-            android:name="com.aryan.android.oyo.HotelsActivity"
+            android:name=".HotelsActivity"
             android:theme="@style/FirstRumTheme" />
-        <activity android:name="com.aryan.android.oyo.MainChatActivity"/>
+        <activity android:name=".MainChatActivity" />
         <activity
-            android:name="com.aryan.android.oyo.HotelActivity"
+            android:name=".HotelActivity"
             android:theme="@style/FirstRumTheme" />
-        <activity android:name="com.aryan.android.oyo.HotelActivity_1"
-            android:theme="@style/FirstRumTheme1"></activity>
+        <activity
+            android:name=".HotelActivity_1"
+            android:theme="@style/FirstRumTheme1" />
     </application>
 
 </manifest>
