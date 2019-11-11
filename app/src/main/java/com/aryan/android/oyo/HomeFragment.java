@@ -83,14 +83,14 @@ public class HomeFragment extends Fragment {
                 R.drawable.ic_keyboard_arrow_right_black_24dp
         };
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rvToDoList);
-        mAdapter = new NewAdapter(getActivity().getApplicationContext(),items,city_imgs,getResources());
-        mRecyclerView.setAdapter(mAdapter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
-        linearLayoutManager.setOrientation(linearLayoutManager.HORIZONTAL);
-        mRecyclerView.setLayoutManager(linearLayoutManager);
-        mRecyclerView.setNestedScrollingEnabled(false);
-        ViewCompat.setNestedScrollingEnabled(mRecyclerView,false);
+        //mRecyclerView = (RecyclerView) view.findViewById(R.id.rvToDoList);
+        //mAdapter = new NewAdapter(getActivity().getApplicationContext(),items,city_imgs,getResources());
+        //mRecyclerView.setAdapter(mAdapter);
+        //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+        //linearLayoutManager.setOrientation(linearLayoutManager.HORIZONTAL);
+        //mRecyclerView.setLayoutManager(linearLayoutManager);
+        //mRecyclerView.setNestedScrollingEnabled(false);
+        //ViewCompat.setNestedScrollingEnabled(mRecyclerView,false);
 
         mOyoTextView = (TextView) view.findViewById(R.id.first_activity_oyo_txt_view);
         mwelcomeMessageTxtView = (TextView) view.findViewById(R.id.welcome_msg) ;
