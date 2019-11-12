@@ -7,15 +7,10 @@ of hospitality.
 ## Screenshots
 <table>
     <tr>
-     <td><img src="/ScreenShot/B.png"></td>
-     <td><img src="/ScreenShot/A.png"></td>
-     <td><img src="/ScreenShot/C.png"></td>
+     <td><img src="/ScreenShot/Img1.jpeg"></td>
+     <td><img src="/ScreenShot/Img2.jpeg"></td>
+     <td><img src="/ScreenShot/Img3.jpeg"></td>
     </tr>
-     <tr> 
-      <td><img src="/ScreenShot/E.png"></td>
-      <td><img src="/ScreenShot/F.png"></td>
-      <td><img src="/ScreenShot/G.png"></td>
-      </tr>
   </table>
   
 ## Development Setup
