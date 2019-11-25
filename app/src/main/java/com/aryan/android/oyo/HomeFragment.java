@@ -13,10 +13,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
-
+import android.content.Intent;
 import static android.content.Context.MODE_PRIVATE;
-
+import android.net.Uri;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,7 +35,7 @@ public class HomeFragment extends Fragment {
     public static TextView mwelcomeMessageTxtView;
     private TextView mSearchBarTextView;
     private NestedScrollView mScrollRecycleView;
-
+    private Button what;
     public static HomeFragment newInstance() {
         // Required empty public constructor
         HomeFragment fragment = new HomeFragment();
@@ -69,7 +70,18 @@ public class HomeFragment extends Fragment {
         }else if(timeOfDay >= 21 && timeOfDay < 24){
             welcomeMessage = "Good Night";
         }
+        what = (Button) view.findViewById(R.id.whatsapp);
+        what.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
 
+                                        Uri uri = Uri.parse("smsto:" + "9415110282");
+                                        Intent i = new  Intent(Intent.ACTION_SENDTO,uri);
+                                        i.setPackage("com.whatsapp");
+                                        startActivity(i);
+                                    }
+                                }
+        );
 
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         toolbar.setPadding(0, 0, 0, 0);

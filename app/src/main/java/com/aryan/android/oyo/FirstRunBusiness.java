@@ -31,8 +31,8 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class FirstRunSecondActivity extends AppCompatActivity implements View.OnClickListener {
-    private final AppCompatActivity activity = FirstRunSecondActivity.this;
+public class FirstRunBusiness extends AppCompatActivity implements View.OnClickListener {
+    private final AppCompatActivity activity = FirstRunBusiness.this;
 
     private ConstraintLayout nestedScrollView;
 
@@ -53,7 +53,7 @@ public class FirstRunSecondActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first_run_second);
+        setContentView(R.layout.activity_business);
 
         initViews();
         initListeners();
@@ -66,18 +66,15 @@ public class FirstRunSecondActivity extends AppCompatActivity implements View.On
      */
     private void initViews() {
 
-        nestedScrollView = (ConstraintLayout) findViewById(R.id.parent_first_run_second);
+        nestedScrollView = (ConstraintLayout) findViewById(R.id.parent_first_run_business);
 
-        textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail1);
-        textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword1);
+        textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail2);
+        textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword2);
 
-        textInputEditTextEmail = (TextInputEditText) findViewById(R.id.editText);
-        textInputEditTextPassword = (TextInputEditText) findViewById(R.id.editText2);
+        textInputEditTextEmail = (TextInputEditText) findViewById(R.id.editText12);
+        textInputEditTextPassword = (TextInputEditText) findViewById(R.id.editText21);
 
-        appCompatButtonLogin = (Button) findViewById(R.id.button);
-
-        textViewLinkRegister = (Button) findViewById(R.id.button2);
-        BusinessLink=(AppCompatTextView)findViewById(R.id.BusinessLink);
+        appCompatButtonLogin = (Button) findViewById(R.id.button12);
 
     }
 
@@ -86,8 +83,6 @@ public class FirstRunSecondActivity extends AppCompatActivity implements View.On
      */
     private void initListeners() {
         appCompatButtonLogin.setOnClickListener(this);
-        textViewLinkRegister.setOnClickListener(this);
-        BusinessLink.setOnClickListener(this);
     }
 
     /**
@@ -107,18 +102,8 @@ public class FirstRunSecondActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button:
-                verifyFromSQLite();
-                break;
-            case R.id.button2:
-                // Navigate to RegisterActivity
-                Intent intentRegister = new Intent(getApplicationContext(), FirstRunThirdActivity.class);
-                startActivity(intentRegister);
-                break;
-            case R.id.BusinessLink:
-                //Open Business Page
-                Intent intentB=new Intent(getApplicationContext(),FirstRunBusiness.class);
-                startActivity(intentB);
+            case R.id.button12:
+                verifyFromSQLite1();
                 break;
 
         }
@@ -127,7 +112,7 @@ public class FirstRunSecondActivity extends AppCompatActivity implements View.On
     /**
      * This method is to validate the input text fields and verify login credentials from SQLite
      */
-    private void verifyFromSQLite() {
+    private void verifyFromSQLite1() {
         if (!inputValidation.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
             return;
         }
@@ -140,7 +125,7 @@ public class FirstRunSecondActivity extends AppCompatActivity implements View.On
 
         if (databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
                 , textInputEditTextPassword.getText().toString().trim())) {
-           DatabaseHelper databaseHelper = new DatabaseHelper(activity);
+            DatabaseHelper databaseHelper = new DatabaseHelper(activity);
             String name = databaseHelper.getName(textInputEditTextEmail.getText().toString().trim());
             getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
                     .putBoolean("isFirstRun", false).commit();
@@ -148,7 +133,7 @@ public class FirstRunSecondActivity extends AppCompatActivity implements View.On
                     .putString("name", name).apply();
 
 
-            Intent intent = new Intent(activity, FirstActivity.class);
+            Intent intent = new Intent(activity, BusinessActivity.class);
             //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             emptyInputEditText();
             startActivity(intent);

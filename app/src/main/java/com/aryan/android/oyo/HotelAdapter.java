@@ -209,7 +209,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelItemVie
 
     @Override
     public int getItemCount() {
-        return mHotelImages.length();
+        return mHotelNames.size();
     }
    /*public void setOnClick(OnItemClicked onClick)
     {

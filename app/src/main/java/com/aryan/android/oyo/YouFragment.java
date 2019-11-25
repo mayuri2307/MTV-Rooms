@@ -15,12 +15,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import static android.content.ContentValues.TAG;
+import static android.content.Context.MODE_PRIVATE;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
 import org.w3c.dom.Text;
 
 /**
@@ -57,6 +60,22 @@ public class YouFragment extends Fragment {
                 startActivity(browse);
             }
         });
+        TextView logout=(TextView) view.findViewById(R.id.logout1);
+        logout.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                Intent intent = new Intent(getActivity(),FirstRunSecondActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                getContext().getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                        .putBoolean("isFirstRun", true).commit();
+                getActivity().finish();
+
+
+
+            }
+        });
         TextView pr1=(TextView) view.findViewById(R.id.profile);
         pr1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +92,15 @@ public class YouFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        TextView wallet=(TextView) view.findViewById(R.id.wlt);
+        wallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentt=new Intent(getActivity(),wallet_page.class);
+                startActivity(intentt);
+            }
+        });
+
         TextView ph1=(TextView) view.findViewById(R.id.call);
         ph1.setOnClickListener(new View.OnClickListener() {
             @Override

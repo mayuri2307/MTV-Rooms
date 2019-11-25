@@ -10,9 +10,23 @@
     <string name="deny_sms">To auto detect OTP,please provide\n
         permission to read SMS. </string>
     <string name="prompt_msg">Type a message</string>
+    <string name="details_save">Details Saved</string>
     <string name="saved_hotel_txt_2">Click on the </string>
     <string name="sample_message">Hello!</string>
     <string name="action_send">Send</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="text_register">Register</string>
+    <string name="error_message_name">Enter Full Name</string>
+    <string name="error_message_email">Enter Valid Email</string>
+    <string name="error_message_age">Enter Age</string>
+    <string name="error_message_password">Enter Password</string>
+    <string name="success_message">Registration Successful</string>
+    <string name="error_email_exists">Email Already Exists</string>
+    <string name="error_password_match">Password Does Not Matches</string>
+    <string name="error_valid_email_password">Wrong Email or Password</string>
     <string name="done_button">DONE</string>
     <string name="heading_text">Hi! Please share some of the details to start with. </string>
     <string name="user_name">NAME</string>
@@ -276,8 +290,7 @@
 
     <string name="hotel_speciality">Fulfill your apetite at Bakasur with their scrumptious \n buffet</string>
     <string name="instruction_two">Couples are welcome</string>
-    <string name="guest_policy">By proceeding, you agree to our
-    <![CDATA[<font color="#FF0000">Guest Policies</font>]]></string>
+    <string name="guest_policy">By proceeding, you agree to our Guest Policies</string>
     <string name="trade_name">This ROOM is serviced under the trade name and as per quality staandards of MTV ROOMS</string>
     <string name="instruction_one">Guest can check in using any local or outstation ID\nproof (PAN card not accepted).</string>
     <string name="test">Extra matress will be provided for triple occupancy bookings</string>

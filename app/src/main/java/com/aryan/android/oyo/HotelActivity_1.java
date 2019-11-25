@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -76,7 +77,18 @@ public class HotelActivity_1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_1);
-
+        ImageView maps=(ImageView) findViewById(R.id.location_img);
+        maps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        //Uri.parse("http://maps.google.com/maps?saddr=20.344,34.34&daddr=20.5666,45.345"));
+                //startActivity(intent);
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("google.navigation:q=The Manali Inn+Manali"));
+                startActivity(intent);
+            }
+        });
         Button book=(Button)findViewById(R.id.book_Room);
         book.setOnClickListener(new View.OnClickListener() {
             @Override

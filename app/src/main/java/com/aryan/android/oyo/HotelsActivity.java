@@ -1,6 +1,8 @@
 package com.aryan.android.oyo;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,16 +33,16 @@ public class HotelsActivity extends AppCompatActivity {
     private TextView mRoomOriginalCost;
    // public HotelAdapter.OnItemClicked onclick;
    TypedArray mHotelImages;
-    ArrayList<Integer> mFavouriteImages = new ArrayList<Integer>(100);
-    List<String> mRoomIds;
-    List<String> mHotelNames;
-    List<String> mHotelLocations;
-    List<String> mOriginalRates;
-    List<String> mReducedCosts;
-    List<String> mDiscounts;
-    List<String> mHotelRatings;
-    List<String> Descriptions;
-    List<String> mRatings;
+    ArrayList<Integer> mFavouriteImages = new ArrayList<Integer>(110);
+    ArrayList<String> mRoomIds;
+    ArrayList<String> mHotelNames;
+    ArrayList<String> mHotelLocations;
+    ArrayList<String> mOriginalRates;
+    ArrayList<String> mReducedCosts;
+    ArrayList<String> mDiscounts;
+    ArrayList<String> mHotelRatings;
+    ArrayList<String> Descriptions;
+    ArrayList<String> mRatings;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -70,15 +74,32 @@ public class HotelsActivity extends AppCompatActivity {
         }
 
         mHotelImages = getResources().obtainTypedArray(R.array.room_imgs);
-        mRoomIds = Arrays.asList(getResources().getStringArray(R.array.room_ids));
-        mHotelNames = Arrays.asList(getResources().getStringArray(R.array.hotel_names));
-        mHotelLocations = Arrays.asList(getResources().getStringArray(R.array.hotel_locations));
-        mOriginalRates = Arrays.asList(getResources().getStringArray(R.array.original_rates));
-        mReducedCosts = Arrays.asList(getResources().getStringArray(R.array.reduced_rates));
-        mDiscounts = Arrays.asList(getResources().getStringArray(R.array.discounts));
-        mHotelRatings = Arrays.asList(getResources().getStringArray(R.array.hotel_ratings));
-        Descriptions = Arrays.asList(getResources().getStringArray(R.array.hotel_descriptions));
-        mRatings = Arrays.asList(getResources().getStringArray(R.array.ratings));
+        mRoomIds = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.room_ids)));
+        mHotelNames = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.hotel_names)));
+        mHotelLocations = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.hotel_locations)));
+        mOriginalRates = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.original_rates)));
+        mReducedCosts = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.reduced_rates)));
+        mDiscounts = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.discounts)));
+        mHotelRatings = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.hotel_ratings)));
+        Descriptions = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.hotel_descriptions)));
+        mRatings = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.ratings)));
+
+        Room room = getSavedObjectFromPreference(getApplicationContext(), "Preference", "Room", Room.class);
+        mRoomIds.add(String.valueOf(room.getId()));
+        mHotelNames.add(room.getName());
+        mHotelLocations.add(room.getLocation());
+        mOriginalRates.add(String.valueOf(room.getRate()));
+        mReducedCosts.add(String.valueOf(room.getCost()));
+        mDiscounts.add(String.valueOf(room.getDiscount()));
+        mHotelRatings.add(String.valueOf(room.getRating()));
+        Descriptions.add(room.getDescription());
+        mRatings.add(String.valueOf(room.getRatings()));
+
+        String name1=getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getString("ToRemove",null);
+        mHotelNames.remove(name1);
+
+
 
         //mFavouriteImages = getResources().obtainTypedArray(R.array.favourite_imgs);
         /* int[] mHotelImages= {
@@ -102,7 +123,7 @@ public class HotelsActivity extends AppCompatActivity {
                 R.drawable.ic_favorite_white_24dp,
                 R.drawable.ic_favorite_white_24dp,
                 R.drawable.ic_favorite_white_24dp};*/
-        for(int i=0;i<100;i++) {
+        for(int i=0;i<110;i++) {
             mFavouriteImages.add(R.drawable.ic_favorite_white_24dp);
         }
 
@@ -164,7 +185,14 @@ public class HotelsActivity extends AppCompatActivity {
         mHotelsRecyclerView.setMotionEventSplittingEnabled(false);
 
     }
-
+    public static <GenericClass> GenericClass getSavedObjectFromPreference(Context context, String preferenceFileName, String preferenceKey, Class<GenericClass> classType) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceFileName, 0);
+        if (sharedPreferences.contains(preferenceKey)) {
+            final Gson gson = new Gson();
+            return gson.fromJson(sharedPreferences.getString(preferenceKey, ""), classType);
+        }
+        return null;
+    }
     public void startDateActivity(View view) {
         Intent intent= new Intent(this,SetDatesActivity.class);
         startActivity(intent);

@@ -24,6 +24,9 @@
         <activity android:name=".profile_you" />
         <activity android:name=".faq_page" />
         <activity
+            android:name=".wallet_page"
+            android:theme="@style/FirstRumTheme1" />
+        <activity
             android:name=".MainActivity"
             android:theme="@style/noAnimTheme">
             <intent-filter>
@@ -31,7 +34,26 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+        <activity
+            android:name=".FirstRunBusiness"
+            android:label=" "
+            android:parentActivityName=".FirstRunSecondActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FirstRumTheme" />
+        <activity
+            android:name=".BusinessActivity"
+            android:label=" "
+            android:parentActivityName=".FirstRunBusiness"
+            android:screenOrientation="portrait"
+            android:theme="@style/FirstRumTheme" />
+        <activity
+            android:name=".Form_Activity"
+            android:label=" "
+            android:parentActivityName=".BusinessActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FirstRumTheme" />
         <activity
             android:name=".FirstRunOneActivity"
             android:screenOrientation="portrait"

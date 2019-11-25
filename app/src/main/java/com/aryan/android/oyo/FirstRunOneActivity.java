@@ -36,19 +36,24 @@ public class FirstRunOneActivity extends AppCompatActivity {
     private FirstRunAdapter mAdapter;
     private int[] mImages;
     private final LinkedList<String> mWordList = new LinkedList<>();
-   // private final LinkedList<Integer> mWordImageList = new LinkedList<>();
+    // private final LinkedList<Integer> mWordImageList = new LinkedList<>();
     private TextView mTxt2;
     float f = 0.2f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         //getWindow().setEnterTransition(new Explode());
         setContentView(R.layout.activity_first_run_one);
+        Intent intent = new Intent(FirstRunOneActivity.this, FirstRunSecondActivity.class);
+        startActivity(new Intent(FirstRunOneActivity.this, FirstRunSecondActivity.class));
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
                 .putString("show","false").apply();
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
                 .putString("show1","false").apply();
+
+/*
         mWordList.addLast("Free Wi-Fi");
         mWordList.addLast("AC Rooms");
         mWordList.addLast("Breakfast Included");
@@ -57,32 +62,12 @@ public class FirstRunOneActivity extends AppCompatActivity {
 
         int[] mImages = {R.drawable.ic_wifi,R.drawable.ic_air_conditioner,R.drawable.ic_toaster,R.drawable.ic_rupee,R.drawable.ic_bed};
 
-        // Create recycler view.
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        // Create an adapter and supply the data to be displayed.
-        mAdapter = new FirstRunAdapter(this, mWordList, mImages);
-        // Connect the adapter with the recycler view.
-        mRecyclerView.setAdapter(mAdapter);
-        // Give the recycler view a default layout manager.
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        oyoTextView = (TextView) findViewById(R.id.oyo);
-        //mFreeWifi = (TextView)findViewById(R.id.free_wifi);
-       // mAcRooms = (TextView) findViewById(R.id.ac_rooms);
-        //mSceneRoot = (ViewGroup) findViewById(R.id.scene_root);
-        mItemAnim = AnimationUtils.loadAnimation(this,R.anim.item_animation_from_bottom);
-        mTxt2 = (TextView)findViewById(R.id.txt2);
-        mGetStartedBtn = (Button) findViewById(R.id.get_started);
-       mParentFirstRunOne = (CoordinatorLayout) findViewById(R.id.parent_first_run_one);
-
-        //mGetStartedBtn.setY(0.83f*getScreenHeight());
-       // mSceneContainer = (RelativeLayout) findViewById(R.id.scene_container);
         final Animation ctt = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.center_to_top);
         final LayoutAnimationController mLayoutAnim = AnimationUtils.loadLayoutAnimation(this,R.anim.layout_animation_from_bottom);
         final LayoutAnimationController animation1 = AnimationUtils.loadLayoutAnimation(FirstRunOneActivity.this, R.anim.layout_animation_from_bottom);
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/anagram.ttf");
         oyoTextView.setTypeface(custom_font);
-        oyoTextView.setLetterSpacing(-0.09f);
+        //oyoTextView.setLetterSpacing(-0.09f);
         Animation zoom = AnimationUtils.loadAnimation(this,R.anim.zoom);
         zoom.setFillAfter(true);
         zoom.setAnimationListener(new Animation.AnimationListener() {
@@ -118,7 +103,7 @@ public class FirstRunOneActivity extends AppCompatActivity {
                 mAcRooms.setVisibility(mAcRooms.VISIBLE);
                mSceneContainer.setLayoutAnimation(mLayoutAnim);
                mSceneContainer.startLayoutAnimation();
-                mSceneContainer.setVisibility(mSceneContainer.VISIBLE);*/
+                mSceneContainer.setVisibility(mSceneContainer.VISIBLE);
 
                 mRecyclerView.setLayoutAnimation(animation1);
                 mRecyclerView.startLayoutAnimation();
@@ -132,7 +117,7 @@ public class FirstRunOneActivity extends AppCompatActivity {
         });
        // oyoTextView.startAnimation(as);
         //zoom.setFillAfter(true);
-
+    /*
         oyoTextView.startAnimation(zoom);
        final Animation a = AnimationUtils.loadAnimation(this,R.anim.slide_up_1);
         a.setFillAfter(true);
@@ -147,13 +132,14 @@ public class FirstRunOneActivity extends AppCompatActivity {
                 mTxt2.startAnimation(a);
                 mTxt2.setVisibility(mTxt2.VISIBLE);
             }
-
-            @Override
+*/
+         /*   @Override
             public void onAnimationRepeat(Animation animation) {
 
             }
         });
-
+        */
+/*
         mGetStartedBtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_forward_black_24dp, 0);
         final Animation btn = AnimationUtils.loadAnimation(this,R.anim.slide_up_2);
         //btn.setFillAfter(true);
@@ -208,7 +194,8 @@ public class FirstRunOneActivity extends AppCompatActivity {
             }
         });
 
-    }
+    } */
+/*
     public static int getScreenWidth() {
         return Resources.getSystem().getDisplayMetrics().widthPixels;
     }
@@ -216,12 +203,13 @@ public class FirstRunOneActivity extends AppCompatActivity {
     public static int getScreenHeight() {
         return Resources.getSystem().getDisplayMetrics().heightPixels;
     }
+*/
 
 
-
-
+/*
     public void getStarted(View view) {
         Intent intent = new Intent(FirstRunOneActivity.this, FirstRunSecondActivity.class);
         startActivity(new Intent(FirstRunOneActivity.this, FirstRunSecondActivity.class));
+    }*/
     }
 }
